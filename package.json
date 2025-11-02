@@ -1,8 +1,8 @@
 {
   "name": "admin-store",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Admin Store Web App",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
