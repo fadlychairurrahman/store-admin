@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Produk</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <h2 class="mb-4">📦 Daftar Produk</h2>
+
+    <!-- Form Tambah Produk -->
+    <form action="/produk/tambah" method="POST" class="mb-4">
+      <div class="row g-2">
+        <div class="col-md-4">
+          <input type="text" name="nama_produk" placeholder="Nama Produk" class="form-control" required>
+        </div>
+        <div class="col-md-3">
+          <input type="number" name="harga" placeholder="Harga" class="form-control" required>
+        </div>
+        <div class="col-md-4">
+          <input type="text" name="deskripsi" placeholder="Deskripsi" class="form-control">
+        </div>
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-primary w-100">Tambah</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Tabel Produk -->
+    <table class="table table-bordered table-striped align-middle">
+      <thead class="table-dark text-center">
+        <tr>
+          <th>ID</th>
+          <th>Nama Produk</th>
+          <th>Harga</th>
+          <th>Deskripsi</th>
+          <th width="150">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (produk && produk.length > 0) { %>
+          <% produk.forEach(p => { %>
+            <tr>
+              <td class="text-center"><%= p.id %></td>
+              <td><%= p.nama_produk %></td>
+              <td>
+                <% if (typeof p.harga === 'number') { %>
+                  Rp <%= p.harga.toLocaleString('id-ID') %>
+                <% } else { %>
+                  Rp <%= p.harga %>
+                <% } %>
+              </td>
+              <td><%= p.deskripsi || '-' %></td>
+              <td class="text-center">
+                <a href="/produk/edit/<%= p.id %>" class="btn btn-sm btn-warning me-1">Edit</a>
+                <a href="/produk/hapus/<%= p.id %>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus produk ini?')">Hapus</a>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="5" class="text-center">Tidak ada data produk.</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <a href="/" class="btn btn-secondary mt-3">⬅ Kembali</a>
+  </div>
+</body>
+</html>
