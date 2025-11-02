@@ -1,11 +1,12 @@
 const mysql = require('mysql2');
 
+// Gunakan environment variables Railway
 const db = mysql.createConnection({
-  host: process.env.DB_HOST,      // pakai env
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT || 3306,
+  host: process.env.DB_HOST || 'containers-us-west-99.railway.app', // default Railway host
+  user: process.env.DB_USER || 'root',                               // default user
+  password: process.env.DB_PASS || 'hX3sd9H2fj9d...',               // default password
+  database: process.env.DB_NAME || 'railway',                        // default database
+  port: process.env.DB_PORT || 3306                                  // port default
 });
 
 db.connect((err) => {
