@@ -35,7 +35,7 @@ Didesain dengan **Bootstrap 5** agar tampilan rapi dan mudah digunakan.
 | Template Engine | EJS |
 | Database | MySQL |
 | Frontend | Bootstrap 5 |
-| Hosting (opsional) | Render / Railway / 000WebHost |
+|----------|--------------|
 
 ---
 
