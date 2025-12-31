@@ -46,5 +46,5 @@ Didesain dengan **Bootstrap 5** agar tampilan rapi dan mudah digunakan.
 Jika menggunakan Git:
 
 ```bash
-git clone https://github.com/username/admin-store.git
+git clone https://github.com/fadlychairurrahman/store-admin.git
 cd admin-store
